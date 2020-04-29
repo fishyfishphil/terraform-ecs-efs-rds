@@ -1,6 +1,6 @@
 resource "aws_network_acl" "demo-vpc-network-acl" {
-    vpc_id = "${aws_vpc.demo-vpc.id}"
-    subnet_ids = ["${aws_subnet.demo-vpc-subnet1.id}", "${aws_subnet.demo-vpc-subnet2.id}"]
+    vpc_id = aws_vpc.demo-vpc.id
+    subnet_ids = [aws_subnet.demo-vpc-subnet1.id, aws_subnet.demo-vpc-subnet2.id]
 
     egress {
         protocol   = "-1"
@@ -20,7 +20,7 @@ resource "aws_network_acl" "demo-vpc-network-acl" {
         to_port    = 0
     }
 
-    tags {
+    tags = {
         Name = "demo-vpc-network-acl"
     }
 }

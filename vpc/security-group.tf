@@ -1,7 +1,7 @@
 resource "aws_security_group" "demo-vpc-security-group" {
     name        = "demo-vpc-security-group"
     description = "Allow HTTP, HTTPS, and SSH"
-    vpc_id = "${aws_vpc.demo-vpc.id}"
+    vpc_id = aws_vpc.demo-vpc.id
 
     // HTTP
     ingress {
@@ -36,5 +36,5 @@ resource "aws_security_group" "demo-vpc-security-group" {
 }
 
 output "security-group-id" {
-  value = "${aws_security_group.demo-vpc-security-group.id}"
+  value = aws_security_group.demo-vpc-security-group.id
 }
